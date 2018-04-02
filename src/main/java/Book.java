@@ -1,3 +1,5 @@
+import java.util.Optional;
+
 public class Book {
     private String bookName;
     private String author;
@@ -26,4 +28,11 @@ public class Book {
     public String getDescription() {
         return description;
     }
+
+
+    public String showBookInfo() {
+        String desc = Optional.ofNullable(this.getDescription()).orElse("no description");
+        return String.format("%s - %s - %s", this.getBookName().toUpperCase(), this.getAuthor(), desc);
+    }
+
 }
